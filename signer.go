@@ -79,7 +79,6 @@ func (singer *GinHttpSigner) SignRequest(req *http.Request) error {
 
 func (singer *GinHttpSigner) setAuth(req *http.Request) error {
 	signString := constructSignMessage(req, singer.headers)
-	fmt.Println("msg", signString)
 	signature, err := singer.secret.Algorithm.Sign(signString, singer.secret.Key)
 	if err != nil {
 		return err
@@ -89,8 +88,6 @@ func (singer *GinHttpSigner) setAuth(req *http.Request) error {
 	if err != nil {
 		return err
 	}
-	fmt.Printf("===>2.f %+v\n", signatureHeader)
-	fmt.Println("===>", signatureHeader.String())
 	req.Header.Set(authorizationHeaderKey, signatureHeader.String())
 	return nil
 }
