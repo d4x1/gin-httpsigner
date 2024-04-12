@@ -1,6 +1,6 @@
 module github.com/d4x1/gin-httpsigner
 
-go 1.22.1
+go 1.20
 
 require github.com/gin-contrib/httpsign v1.0.1
 
