@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/gin-contrib/httpsign"
+	"github.com/d4x1/httpsign"
 )
 
 const (
