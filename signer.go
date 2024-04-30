@@ -93,7 +93,7 @@ func (singer *GinHttpSigner) setAuth(req *http.Request) error {
 }
 
 func (singer *GinHttpSigner) setDate(req *http.Request) error {
-	req.Header.Set(dateHeaderKey, time.Now().Format(time.RFC850))
+	req.Header.Set(dateHeaderKey, time.Now().Format(http.TimeFormat))
 	return nil
 }
 
