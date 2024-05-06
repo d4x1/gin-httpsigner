@@ -66,9 +66,6 @@ func (singer *GinHttpSigner) GetSignatureHeader(signatureBase64 string) (*Signat
 }
 
 func (singer *GinHttpSigner) SignRequest(req *http.Request) error {
-	if err := singer.setTimestamp(req); err != nil {
-		return err
-	}
 	if err := singer.setDate(req); err != nil {
 		return err
 	}
@@ -97,12 +94,7 @@ func (singer *GinHttpSigner) setAuth(req *http.Request) error {
 }
 
 func (singer *GinHttpSigner) setDate(req *http.Request) error {
-	req.Header.Set(dateHeaderKey, time.Now().Format(http.TimeFormat))
-	return nil
-}
-
-func (singer *GinHttpSigner) setTimestamp(req *http.Request) error {
-	req.Header.Set(timestampHeaderKey, fmt.Sprintf("%d", time.Now().Unix()))
+	req.Header.Set(dateHeaderKey, fmt.Sprintf("%d", time.Now().Unix()))
 	return nil
 }
 
