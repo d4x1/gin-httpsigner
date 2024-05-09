@@ -1,5 +1,5 @@
 
-works with [gin-contrib/httpsign](https://github.com/gin-contrib/httpsign)
+works with [merico-dev/httpsign](https://github.com/merico-dev/httpsign)
 
 #### usage
 ```golang
